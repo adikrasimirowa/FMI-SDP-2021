@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/adi/CLionProjects/seminar3/DArray.h
+
+/home/adi/CLionProjects/seminar3/main.cpp
+iostream
+-
+DArray.h
+/home/adi/CLionProjects/seminar3/DArray.h
+

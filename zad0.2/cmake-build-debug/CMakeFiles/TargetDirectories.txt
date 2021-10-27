@@ -1,0 +1,3 @@
+/home/adi/CLionProjects/zad0.2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/adi/CLionProjects/zad0.2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/adi/CLionProjects/zad0.2/cmake-build-debug/CMakeFiles/zad0_2.dir

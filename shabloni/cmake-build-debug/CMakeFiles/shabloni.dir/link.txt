@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/shabloni.dir/main.cpp.o -o shabloni 
