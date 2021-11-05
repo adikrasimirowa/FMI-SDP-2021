@@ -57,10 +57,10 @@ RM = /snap/clion/169/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adi/CLionProjects/FMI-SDP-2021/seminar3
+CMAKE_SOURCE_DIR = /home/adi/CLionProjects/FMI-SDP-2021/seminar4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug
+CMAKE_BINARY_DIR = /home/adi/CLionProjects/FMI-SDP-2021/seminar4/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug/CMakeFiles /home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adi/CLionProjects/FMI-SDP-2021/seminar4/cmake-build-debug/CMakeFiles /home/adi/CLionProjects/FMI-SDP-2021/seminar4/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adi/CLionProjects/FMI-SDP-2021/seminar4/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named seminar3
+# Target rules for targets named seminar4
 
 # Build rule for target.
-seminar3: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 seminar3
-.PHONY : seminar3
+seminar4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 seminar4
+.PHONY : seminar4
 
 # fast build rule for target.
-seminar3/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar3.dir/build.make CMakeFiles/seminar3.dir/build
-.PHONY : seminar3/fast
+seminar4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar4.dir/build.make CMakeFiles/seminar4.dir/build
+.PHONY : seminar4/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar3.dir/build.make CMakeFiles/seminar3.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar4.dir/build.make CMakeFiles/seminar4.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar3.dir/build.make CMakeFiles/seminar3.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar4.dir/build.make CMakeFiles/seminar4.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar3.dir/build.make CMakeFiles/seminar3.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/seminar4.dir/build.make CMakeFiles/seminar4.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... seminar3"
+	@echo "... seminar4"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

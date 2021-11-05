@@ -48,7 +48,7 @@ public:
     ///begin - указател ктм начало на обхвата
     /// end - указател към края на обхвата
     /// fillValue - сстойността с която да бъде запълнен масива
-    static void constructCopyRange(Type* begin, Type* end,  Type& fillValue );
+    static void constructCopyRange(Type* begin, Type* end, Type* fillValue );
 
     ///конструира обекти от тип T посредстеом конструктор
     /// по подразбиране върху паметта, определена орт обхвата begin до end
@@ -73,15 +73,27 @@ void DArray<Type>::copy(const DArray<Type> &other) {
 ///CONSTRUCTORS
 template<typename Type>
 DArray<Type>::DArray() : data(allocateMemory(8)),size(0),capacity(8) {
-    constructRange(this->data, this->data + this->capacity);
+    try {
+        constructRange(this->data, this->data + this->capacity);
+    } catch (...) {
+        destructAndDeleteRange(this->data, this->data + this->size);
+        throw ;
+    }
+
 }
 template<typename Type>
 DArray<Type>::DArray(const size_t &size) : data(allocateMemory(size)),size(size), capacity(size) {
-    constructRange(this->data, this->data+size);
+        constructRange(this->data, this->data+size);
 }
 template<typename Type>
 DArray<Type>::DArray(const DArray &other) {
-    this->copy(other);
+    try {
+        this->copy(other);
+    } catch (...) {
+        other->~DArray();
+        throw ;
+    }
+
 }
 
 template<typename Type>
@@ -107,10 +119,11 @@ Type *DArray<Type>::allocateMemory(const size_t _capacity) {
 }
 
 template<typename Type>
-void DArray<Type>::constructCopyRange(Type *begin, Type *end,  Type &fillValue) {
+void DArray<Type>::constructCopyRange(Type *begin, Type *end, Type* fillValue) {
     while (begin != end) {
-        new((void*)begin) Type(fillValue);
+        new((void*)fillValue) Type(*begin);
         ++begin;
+        ++fillValue;
     }
 }
 
@@ -141,8 +154,8 @@ template<typename Type>
 void DArray<Type>::reserve(const size_t &newCapacity) {
     //ако newCapacity e по-голям от текущия capacity, се разпределя ново място за съхранение
     // не променя размера на вектора
-    if(newCapacity >= this->capacity) {
-        Type * _data = allocateMemory(newCapacity);
+    if(newCapacity > this->capacity) {
+        Type* _data = allocateMemory(newCapacity);
         constructCopyRange(this->data, this->data + this->size , _data);
         destructAndDeleteRange(this->data, this->data + this->size);
         this->data = _data;
@@ -155,7 +168,7 @@ template<typename Type>
 void DArray<Type>::resize(const size_t newSize) {
     //ако новият размер е по-малък от текущият размер,крайните елементи се трият
     if(newSize <= this->size) {
-        destructRange(this->data+ newSize, this->data + this->size);
+        destructRange(this->data + newSize, this->data + this->size);
         this->size = newSize;
         return;
     }
@@ -165,9 +178,23 @@ void DArray<Type>::resize(const size_t newSize) {
         this->size = newSize;
         return;
     }
-    while (newSize > this->capacity) {
-        reserve(this->capacity*2);
+
+    ///2 - факторна стойност
+    size_t newCapacity = newSize;
+    size_t defaultGrowthCapacity = size > 0? size * 2 :newSize;
+    while (newSize < defaultGrowthCapacity) {
+        defaultGrowthCapacity *= 2;
     }
+    if (newCapacity < defaultGrowthCapacity) {
+        newCapacity = defaultGrowthCapacity;
+    }
+
+
+    Type* _data = allocateMemory(newCapacity);
+    constructCopyRange(this->data, this->data + this->size , _data);
+    destructAndDeleteRange(this->data, this->data + this->size);
+    this->data = _data;
+    this->capacity = newCapacity;
     this->size = newSize;
 }
 
@@ -198,8 +225,5 @@ void DArray<Type>::print() {
         std::cout<< this->data[i]<<std::endl;
     }
 }
-
-
-
 
 #endif //SEMINAR3_DARRAY_H

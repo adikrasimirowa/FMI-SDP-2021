@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/adi/CLionProjects/seminar3/DArray.h
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/DArray.h
 
-/home/adi/CLionProjects/seminar3/main.cpp
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/main.cpp
 iostream
 -
 DArray.h
-/home/adi/CLionProjects/seminar3/DArray.h
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/DArray.h
 

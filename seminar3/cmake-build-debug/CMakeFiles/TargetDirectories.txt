@@ -1,3 +1,3 @@
-/home/adi/CLionProjects/seminar3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/adi/CLionProjects/seminar3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/adi/CLionProjects/seminar3/cmake-build-debug/CMakeFiles/seminar3.dir
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/adi/CLionProjects/FMI-SDP-2021/seminar3/cmake-build-debug/CMakeFiles/seminar3.dir
